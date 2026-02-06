@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Shelf | Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="logo-wrap">
+      <div class="ai-core"></div>
+      <h1>SMART SHELF</h1>
+     
+
+
+
+    <h3>Create Account</h3>
+
+    <div class="input-group">
+      <label>Email Address</label>
+      <div class="input-with-icon">
+        <input type="email" id="newUsername" placeholder="Enter your email">
+      </div>
+      <p class="error" id="userError"></p>
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <div class="input-with-icon">
+        <input type="password" id="newPassword" placeholder="Create password">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Confirm Password</label>
+      <div class="input-with-icon">
+        <input type="password" id="confirmPassword" placeholder="Confirm password">
+      </div>
+      <div class="show-password">
+        <input type="checkbox" id="showPassword" onclick="togglePassword()"> 
+        <span>Show password</span>
+      </div>
+      <p class="error" id="passError"></p>
+    </div>
+
+    <button id="signupBtn" onclick="signup()">Create Account</button>
+
+    <div class="links">
+      <div class="divider"><span>Already registered?</span></div>
+      <a href="login.html">Login to system</a>
+    </div>
+
+    <div class="demo-info">
+      <strong>System Security Rules</strong>
+      <ul>
+        <li>Minimum 8 characters</li>
+        <li>Letters and numbers required</li>
+        <li>Valid email format</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<script src="signup.js"></script>
+</body>
+</html>
