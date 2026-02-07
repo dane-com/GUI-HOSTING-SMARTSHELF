@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartShelf Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">SMART<span>SHELF</span></div>
+      <div class="search-bar">
+        <button class="search-btn">🔍</button>
+        <input type="text" placeholder="Search...">
+      </div>
+      <button class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Individual Product Cards (Large View) -->
+      <section class="product-cards-large">
+        <div class="product-card">
+          <div class="product-header">PEAR</div>
+          <div class="product-image">
+            <img src="pear.png" alt="Pear" onerror="this.src='https://via.placeholder.com/150?text=Pear'">
+          </div>
+          <div class="product-footer">
+            <div class="spoilage-label">DAYS BEFORE SPOILAGE</div>
+            <div class="spoilage-value" id="pear-days">5</div>
+          </div>
+        </div>
+
+        <div class="spoilage-display-card">
+          <div class="spoilage-header">DAYS BEFORE SPOILAGE</div>
+          <div class="spoilage-number" id="selected-days">5</div>
+        </div>
+      </section>
+
+      <section class="product-cards-large">
+        <div class="product-card">
+          <div class="product-header">AVOCADO</div>
+          <div class="product-image">
+            <img src="avocado.png" alt="Avocado" onerror="this.src='https://via.placeholder.com/150?text=Avocado'">
+          </div>
+          <div class="product-footer">
+            <div class="spoilage-label">DAYS BEFORE SPOILAGE</div>
+            <div class="spoilage-value" id="avocado-days">4</div>
+          </div>
+        </div>
+
+        <div class="spoilage-display-card">
+          <div class="spoilage-header">DAYS BEFORE SPOILAGE</div>
+          <div class="spoilage-number" id="selected-days-2">4</div>
+        </div>
+      </section>
+
+      <section class="product-cards-large">
+        <div class="product-card">
+          <div class="product-header">STRAWBERRY</div>
+          <div class="product-image">
+            <img src="strawberry.png" alt="Strawberry" onerror="this.src='https://via.placeholder.com/150?text=Strawberry'">
+          </div>
+          <div class="product-footer">
+            <div class="spoilage-label">DAYS BEFORE SPOILAGE</div>
+            <div class="spoilage-value" id="strawberry-days">3</div>
+          </div>
+        </div>
+
+        <div class="spoilage-display-card">
+          <div class="spoilage-header">DAYS BEFORE SPOILAGE</div>
+          <div class="spoilage-number" id="selected-days-3">3</div>
+        </div>
+      </section>
+
+      <!-- Inventory Grid Section -->
+      <section class="inventory-grid">
+        <div class="grid-card" data-product="pear">
+          <div class="grid-header">PEAR</div>
+          <div class="grid-image">
+            <img src="pea.png" alt="Pear" onerror="this.src='https://via.placeholder.com/120?text=Pear'">
+          </div>
+          <div class="grid-info">
+            <div class="info-item">
+              <div class="info-label">DAYS BEFORE SPOILAGE</div>
+              <div class="info-value">5</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">STOCK AVAILABLE</div>
+              <div class="info-value">38 units</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-card" data-product="avocado">
+          <div class="grid-header">AVOCADO</div>
+          <div class="grid-image">
+            <img src="avocado.png" alt="Avocado" onerror="this.src='https://via.placeholder.com/120?text=Avocado'">
+          </div>
+          <div class="grid-info">
+            <div class="info-item">
+              <div class="info-label">DAYS BEFORE SPOILAGE</div>
+              <div class="info-value">4</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">STOCK AVAILABLE</div>
+              <div class="info-value">52 units</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-card" data-product="strawberry">
+          <div class="grid-header">STRAWBERRY</div>
+          <div class="grid-image">
+            <img src="strawberry.png" alt="Strawberry" onerror="this.src='https://via.placeholder.com/120?text=Strawberry'">
+          </div>
+          <div class="grid-info">
+            <div class="info-item">
+              <div class="info-label">DAYS BEFORE SPOILAGE</div>
+              <div class="info-value">3</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">STOCK AVAILABLE</div>
+              <div class="info-value">75 units</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-header">ACTION NEEDED</div>
+          <div class="action-content">
+            <div class="action-item urgent">
+              <span class="action-icon">⚠️</span>
+              <span>Strawberry - 3 days left</span>
+            </div>
+            <div class="action-item warning">
+              <span class="action-icon">⏰</span>
+              <span>Avocado - 4 days left</span>
+            </div>
+            <div class="action-item warning">
+              <span class="action-icon">⏰</span>
+              <span>Pear - 5 days left</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
