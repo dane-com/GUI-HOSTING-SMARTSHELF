@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- FONT-------------->
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic+Guides&display=swap" rel="stylesheet">
+
+    <!-- Material Icon-------------->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> 
+    
+         <!--------CSS-->
+    <link rel="stylesheet" href="CSS/home.css">
+</head>
+<body>
+<nav id="sidebar">
+        <ul>
+            <li>
+                <h1 class="name">Smart<span>SHELF</span></h1>
+                <button id="toggle-btn">
+                    <img src="Icons/arrow-left.svg">
+                </button>
+                    
+            </li>
+
+            <div class="main-dash">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <img src="Icons/dashboard.svg">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shelves.html">
+                        <img src="Icons/shelves.svg">
+                        <span>Shelves</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="reports.html">
+                        <img src="Icons/reports.svg">
+                        <span>Reports</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="settings.html">
+                        <img src="Icons/settings.svg">
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="main-status">
+
+            <div class="total-fruits">
+                <div class="status-wrapper">
+                    <span class="status">Total Fruits</span>
+                    <button class="btn-down">
+                        <img src="Icons/arrow-down.png" class="fruit-icon">
+                    </button>
+                </div>
+                <img src="IMAGE/total-fruits.png" class="main-img">
+            </div>
+
+            <div class="fresh">
+                <div class="status-wrapper">
+                    <span class="status">Fresh</span>
+                    <button class="btn-down">
+                        <img src="Icons/arrow-down.png" class="fruit-icon">
+                    </button>
+                </div>
+                <img src="IMAGE/fresh.png" class="main-img">
+            </div>
+
+            <div class="needs-attention">
+                <span class="status">Needs Attention</span>
+                <img src="IMAGE/needs-attention.png" class="main-img">
+            </div>
+            
+            <div class="spoiled">
+                <span class="status">Spoiled</span>
+                <img src="IMAGE/spoiled.png" class="main-img">
+            </div>   
+
+        </div>
+
+        <div class="container">
+
+            <div class="onlive">
+                <span class="live-shelf-status">Live Shelf Status</span>
+            </div>
+
+            <div class="freshness">
+                <span>Freshness Overview</span>
+
+            <div class="overview">
+                    <ul>
+                        <li>
+                            Fresh
+                        </li>
+                        
+                        <li>
+                            Need Attention
+                        </li>
+        
+                        <li>
+                            Spoiled
+                        </li>
+                    </ul>
+            </div>
+
+        </div>
+</main>
+
+
+
+
+
+    <script src="JS/home.js"></script>
+</body>
+</html>
