@@ -52,6 +52,7 @@ loginBtn.addEventListener('click', async (e) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
         alert("Login successful!");
+        window.location.href = "home.html";
     } catch (error) {
         if (error.code === "auth/user-not-found") {
             alert("Please create an account first");
@@ -87,6 +88,7 @@ createBtn.addEventListener('click', async (e) => {
         }
     }
 });
+
 
 
 
