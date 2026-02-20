@@ -100,7 +100,38 @@
                 </div>
             </div>
         </div>
-
+        <div class="container-table">
+            <table class="table">
+                <tr>
+                    <th>Fruit</th>
+                    <th>Status</th>
+                    <th>Shelf</th>
+                    <th>Humidity</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td><img src="IMAGE/pear-image.png" width="50px">Pear</td>
+                    <td>[Status]</td>
+                    <td>Shelf A</td>
+                    <td>[Humidity %]</td>
+                    <td>[Time]</td>
+                </tr>
+                <tr>
+                    <td><img src="IMAGE/strawberry-image.png" width="50px">Strawberry</td>
+                    <td>[Status]</td>
+                    <td>Shelf B</td>
+                    <td>[Humidity %]</td>
+                    <td>[Time]</td>
+                </tr>
+                <tr>
+                    <td><img src="IMAGE/mangosteen-image.png" width="50px">Mangosteen</td>
+                    <td>[Status]</td>
+                    <td>Shelf C</td>
+                    <td>[Humidity %]</td>
+                    <td>[Time]</td>
+                </tr>
+            </table>
+        </div>
         <div class="detection-container">
             <div class="detection-panel">
                 <div class="control-panel">
@@ -126,4 +157,5 @@
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='JS/home.js') }}"></script>
 </body>
+
 </html>
