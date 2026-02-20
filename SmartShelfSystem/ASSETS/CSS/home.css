@@ -184,7 +184,47 @@ hr{
     width:200px;
     border: 1px solid rgb(96, 95, 95)
 }
+.container-table {
+    position: absolute;
+    right: 15px;
+    width: 38.2%;
+    margin-top: -185px; 
+    /* PALITAN MO ITO: Mula 35vh gawin nating fit-content */
+    height: fit-content;    /* Kakasya lang sa laki ng table */
+    max-height: 250px;      /* Safety limit para hindi lumampas sa screen */
+    overflow: hidden; 
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgb(166, 196, 179);
+    
+    box-sizing: border-box;
+    
+    /* DAGDAGAN MO ITO: Para mabawasan ang space sa loob ng box */
+    padding: 10px; 
+}
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Alisin ang margin-right dito para hindi masira ang alignment */
+}
+
+.table th, .table td {
+    /* PALITAN MO ITO: Gawin nating 8px o mas maliit pa para sumikip */
+    padding: 8px 5px; 
+    
+    /* DAGDAGAN MO ITO: Gawin nating left-aligned para mas malinis tignan */
+    text-align: left; 
+    
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.table img {
+    display: inline-block;  /* Ginawang inline para hindi masyadong kumain ng vertical space */
+    width: 30px;            /* Pinaliit ang image */
+    margin-right: 5px;
+    vertical-align: middle;
+}
 #sidebar.collapsed #toggle-btn img {
     transform: rotate(180deg);
 }
@@ -598,6 +638,7 @@ hr{
         font-size: 1.8em;
     }
 }
+
 
 
 
