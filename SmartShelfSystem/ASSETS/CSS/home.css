@@ -1,9 +1,9 @@
 :root{
-    --base-clr: #e3e3e3;
+    --base-clr: linear-gradient(to right, #109c4f, #195706af);
     --line-clr: #065e20;
     --hover-clr:rgb(0, 0, 0);
     --text-clr:rgb(0, 0, 0);
-    --accent-clr:#5e63ff;
+    --accent-clr:#2602b8;
     --secondary-text-clr: grey;
   
 }
@@ -16,22 +16,33 @@ html{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 24px;
 }
-body{
+body {
+    display: flex; /* Gawing Flexbox ang buong page */
     min-height: 100vh;
-    min-height: 100dvh;
-    background-color: var(--base-clr);
-    color:var(--text-clr);
-    display: grid;
-    grid-template-columns: auto 1fr;
+    margin: 0;
+    background: var(--base-clr);
+    overflow-x: hidden; /* Iwas overflow sa gilid */
 }
-
+.name{
+    width: 200px;
+    height: 30px; /* Ito lang ang ginawa nating rectangle */
+    border-radius: 20px 50px 10px 20px  ;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgb(166, 196, 179);
+    display: flex;  
+    margin-top: 12px;
+    background: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+}
 #sidebar{
+    
+    width: 250px;       /* Fixed width para sa sidebar */
+    flex-shrink: 0;     /* Bawal siyang lumiit kahit masikip ang screen */
+    height: 100vh;
+    position: sticky;   /* Mananatili sa gilid habang nag-sscroll ang main */
+    top: 0;
     box-sizing: border-box;
-    height: 100dvh;
-    width: 250px;
-    padding: 5px 1em;
-    background-color: var(--base-clr);
-    box-shadow: 2px 2px  rgb(142, 210, 171);
+    margin-left: 15px;
+    
     border-radius: 10px 0px 2px rgb(3, 63, 8)
 }
 
@@ -39,25 +50,42 @@ body{
     list-style: none;
 
 }
-#sidebar > ul > li:first-child{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    align-items: center;
-    
-}
-#sidebar .name{
-    font-weight: 600;
-    display:flex;
-    align-items: center;
-    gap: 0.2em;
-}
 
 #sidebar ul li.active a{
     color: var(--accent-clr)
 }
-img{
-    fill: var(--accent-clr)
+
+/* 1. Palitan ang space-between ng flex-start */
+#sidebar > ul > li.name {
+    display: flex;
+    justify-content: flex-start; /* Itatabi sila sa kaliwa */
+    align-items: center;
+    gap: 0;                      /* Alisin ang space sa pagitan */
+    margin-bottom: 16px;
+    padding-left: 10px;          /* Konting awang mula sa left edge ng sidebar */
+}
+
+#sidebar .name h1 {
+    padding: 0.85em 0.1em 0.85em 0.85em; /* Pinaliit ang 0.1em sa kanan */
+    margin: 0;
+    font-size: 1.5rem; 
+    border-radius: 0;            /* Alisin kung hindi kailangan */
+}
+
+/* 3. Siguraduhing walang extra space ang toggle button */
+#toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#toggle-btn img {
+    width: 25px; /* Adjust mo ang laki ng icon dito */
+    height: auto;
 }
 
 #sidebar a,
@@ -71,9 +99,17 @@ img{
     gap: 0.1em;
        
 }
+.main-dash{
+    width: 200px;
+    height: 410px; 
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgb(166, 196, 179);
+    background: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+}
 
 main {
-    margin: 0;
+    margin-right:20px;
     padding: 20px;
     height: 100vh;
     box-sizing: border-box;
@@ -88,7 +124,7 @@ main {
     gap: 15px;
     width: 100%; 
     margin-bottom: 20px;
-    margin-top: 0;
+    margin-top: 45px;
 }
 
 .total-fruits, .fresh, .needs-attention, .spoiled {
@@ -101,6 +137,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: white;
 }
 
 .status-wrapper{
@@ -141,27 +178,86 @@ main {
     width: 100%; /* Fill full horizontal width */
 }
 
+.container {
+    display: flex;
+    align-items: flex-start; /* Importante ito para hindi sumunod ang height ng isa sa isa */
+    gap: 20px;
+    width: 100%;
+}
+
 .onlive {
-    flex: 2; 
+    width: 50%;
+    height: 350px; /* O kahit anong height na gusto mo para sa live status */
     background: white;
     border-radius: 20px;
     padding: 15px;
     box-shadow: 2px 2px 10px rgb(166, 196, 179);
     display: flex;
     flex-direction: column;
-    height: auto;
-    margin: 0;
+    box-sizing: border-box;
 }
 
+.detection-panel {
+    display: flex;
+    margin-top: 245px; 
+    width: 100%;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%; 
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px; 
+    width: 70%; 
+    margin-right: 30px;
+}
+
+.btn-control {
+    flex: 1; 
+    border-style: solid;
+    box-shadow: 1px 1px;
+    padding: 5px 0; 
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;    
+    justify-content: center;
+}
+#startBtn{
+    font-size: 12px;
+}
+#stopBtn{
+    font-size: 12px;
+}
+#cameraSelect {
+    border: none;
+    background: none;
+    padding: 5px 25px 5px 5px; 
+    cursor: pointer;
+    
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 10px;
+}
 .freshness {
-    flex: 1;
+    width: 50%;
+    height: 180px; /* Ito lang ang ginawa nating rectangle */
     background: white;
     border-radius: 20px;
     padding: 15px;
     box-shadow: 2px 2px 10px rgb(166, 196, 179);
-    height: auto;
-    width: auto; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
+
 
 .freshness ul li {
     font-weight: 600;
@@ -185,458 +281,47 @@ hr{
     border: 1px solid rgb(96, 95, 95)
 }
 .container-table {
-    position: absolute;
-    right: 15px;
-    width: 38.2%;
-    margin-top: -185px; 
-    /* PALITAN MO ITO: Mula 35vh gawin nating fit-content */
-    height: fit-content;    /* Kakasya lang sa laki ng table */
-    max-height: 250px;      /* Safety limit para hindi lumampas sa screen */
-    overflow: hidden; 
+    position: flex;
+    flex-direction: column;
+    margin: -160px 0 0 490px;
+    width: 469px; 
+
+    height: 180px; 
+
+    background: white;
     border-radius: 20px;
     box-shadow: 2px 2px 10px rgb(166, 196, 179);
-    
     box-sizing: border-box;
-    
-    /* DAGDAGAN MO ITO: Para mabawasan ang space sa loob ng box */
     padding: 10px; 
 }
 
 .table {
     width: 100%;
+   
     border-collapse: collapse;
-    /* Alisin ang margin-right dito para hindi masira ang alignment */
+
 }
 
 .table th, .table td {
-    /* PALITAN MO ITO: Gawin nating 8px o mas maliit pa para sumikip */
-    padding: 8px 5px; 
+    /* Mula 8px, gawin nating 4px para sumikip ang rows */
+    padding: 7px 5px; 
     
-    /* DAGDAGAN MO ITO: Gawin nating left-aligned para mas malinis tignan */
     text-align: left; 
-    
     border-bottom: 1px solid #f0f0f0;
-    font-size: 14px;
+    
+    font-size: 13px; 
+    
+    /* Importante: Para hindi lumaki ang row height */
+    line-height: 1.2; 
 }
-
 .table img {
     display: inline-block;  /* Ginawang inline para hindi masyadong kumain ng vertical space */
     width: 30px;            /* Pinaliit ang image */
     margin-right: 5px;
     vertical-align: middle;
 }
-#sidebar.collapsed #toggle-btn img {
-    transform: rotate(180deg);
-}
-
-#sidebar.collapsed {
-    width: 80px; 
-}
-
-#sidebar.collapsed ul li a span {
-    display: none;
-}
-
-#sidebar.collapsed ul li a {
-    justify-content: center;
-    padding-left: 0;
-}
-
-/*YOLO Real-time Detection Styling*/
-.detection-container {
-    width: 100%;
-    max-width: none; 
-    margin-top: 20px;
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
-}
-
-.detection-panel {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.detection-title {
-    background: linear-gradient(135deg, #b0f5b9 0%, #4ca149 100%);
-    color: white;
-    padding: 12px; 
-    margin: 0;
-    font-size: 1.4em; 
-    text-align: center;
-}
-
-/* Video Stream */
-.video-wrapper {
-    width: 100%;
-    flex: 1; 
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    margin-top: 10px;
-}
-
-.detection-frame {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-}
-
-/* Loading Spinner */
-.loading-spinner {
-    position: absolute;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 10;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #b0f5b9;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Control Panel */
-.control-panel {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 2px 2px 10px rgb(166, 196, 179);
-}
-
-.control-buttons {
-    display: flex;
-    gap: 10px;
-    flex: 1;
-    min-width: 250px;
-}
-
-.btn-control {
-    flex: 1;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn-start {
-    background: linear-gradient(135deg, #b0f5b9 0%, #4ca149 100%);
-    color: white;
-    min-width: 140px;
-}
-
-.btn-start:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-.btn-start:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.btn-stop {
-    background: #ff6b6b;
-    color: white;
-    min-width: 140px;
-}
-
-.btn-stop:hover:not(:disabled) {
-    background: #ff5252;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-}
-
-.btn-stop:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.material-icons-outlined {
-    font-size: 1.2em;
-}
-
-/* Camera Selector */
-.camera-selector {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 200px;
-}
-
-.camera-selector label {
-    font-weight: 600;
-    color: #333;
-    white-space: nowrap;
-}
-
-.camera-selector select {
-    padding: 10px 12px;
-    border: 2px solid hsl(219, 100%, 62%);
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    background: white;
-    color: #333;
-    min-width: 120px;
-    transition: all 0.3s ease;
-}
-
-.camera-selector select:hover {
-    border-color: #4ca149;
-}
-
-.camera-selector select:focus {
-    outline: none;
-    border-color: #4ca149;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* Results Panel */
-.results-panel {
-    padding: 20px;
-    background: white;
-}
-
-.results-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #b0f5b9;
-    padding-bottom: 15px;
-}
-
-.results-header h3 {
-    margin: 0;
-    color: #333;
-    font-size: 1.4em;
-}
-
-.fps-counter {
-    background: linear-gradient(135deg, #b0f5b9 0%, #4ca149 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.95em;
-}
-
-/* Total Objects Display */
-.total-objects {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.total-count {
-    background: linear-gradient(135deg, #b0f5b9 0%, #4ca149 100%);
-    color: white;
-    padding: 15px;
-    border-radius: 12px;
-    display: inline-block;
-    min-width: 150px;
-}
-
-.count-label {
-    display: block;
-    font-size: 0.9em;
-    opacity: 0.9;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.count-value {
-    display: block;
-    font-size: 2em;
-    font-weight: 700;
-    line-height: 1;
-}
-
-/* Labels Grid */
-.labels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin: 15px 0;
-}
-
-.label-card {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border: 2px solid #b0f5b9;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: default;
-}
-
-.label-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-    border-color: #4ca149;
-}
-
-.label-name {
-    font-weight: 600;
-    color: #333;
-    font-size: 0.95em;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.label-count {
-    font-size: 2em;
-    font-weight: 700;
-    background: linear-gradient(135deg, #b0f5b9 0%, #4ca149 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.waiting-text {
-    text-align: center;
-    color: #999;
-    padding: 40px 20px;
-    font-size: 1.1em;
-}
-
-/* Detection Stats */
-.detection-stats {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.status-msg {
-    margin: 0;
-    padding: 12px 15px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 0.95em;
-}
-
-.status-success {
-    background: #d4edda;
-    color: #155724;
-    border-left: 4px solid #28a745;
-}
-
-.status-error {
-    background: #f8d7da;
-    color: #721c24;
-    border-left: 4px solid #f5c6cb;
-}
-
-.status-info {
-    background: #d1ecf1;
-    color: #0c5460;
-    border-left: 4px solid #bee5eb;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .detection-container {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    .control-panel {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .control-buttons {
-        width: 100%;
-    }
-
-    .camera-selector {
-        width: 100%;
-    }
-
-    .btn-control {
-        min-width: auto;
-    }
-
-    .total-count {
-        min-width: auto;
-        padding: 20px;
-    }
-
-    .count-value {
-        font-size: 2em;
-    }
-
-    .results-header {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-    }
-
-    .fps-counter {
-        align-self: flex-start;
-    }
-
-    .labels-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-
-    .detection-frame {
-        height: auto;
-        aspect-ratio: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .detection-title {
-        font-size: 1.2em;
-        padding: 15px;
-    }
-
-    .control-panel {
-        padding: 15px;
-    }
-
-    .results-panel {
-        padding: 15px;
-    }
-
-    .labels-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .total-count {
-        padding: 15px;
-    }
-
-    .count-value {
-        font-size: 1.8em;
-    }
+.table tr:last-child td {
+    border-bottom: none;
 }
 
 
