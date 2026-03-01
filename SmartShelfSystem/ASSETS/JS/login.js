@@ -54,7 +54,7 @@ loginBtn.addEventListener('click', async (e) => {
     } catch (error) {
         if (error.code === "auth/user-not-found") {
             alert("Please create an account first");
-        } else if (error.code === "auth/invalid-credential") {
+        } else if (error.code === "auth/wrong-password") {
             alert("Incorrect password");
         } else {
             alert("Login failed: " + error.message);
@@ -86,6 +86,7 @@ createBtn.addEventListener('click', async (e) => {
         }
     }
 });
+
 
 
 
