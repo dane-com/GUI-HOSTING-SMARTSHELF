@@ -132,6 +132,10 @@ def login():
 @app.route('/home.html')
 def home():
     return render_template('home.html')
+            
+@app.route('/reports.html')
+def reports():
+    return render_template('reports.html')
 
 # --- SOCKET EVENTS ---
 @socketio.on('connect')
@@ -187,3 +191,4 @@ if __name__ == '__main__':
     print("---------------------------------------")
 
     socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True)
+
