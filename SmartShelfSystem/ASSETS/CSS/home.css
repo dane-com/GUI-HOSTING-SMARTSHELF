@@ -1,5 +1,5 @@
 :root{
-    --base-clr: linear-gradient(to right, #109c4f, #195706af);
+    --base-clr: linear-gradient(to right, #82be9d, #34b00faf);
     --line-clr: #065e20;
     --hover-clr:rgb(0, 0, 0);
     --text-clr:rgb(0, 0, 0);
@@ -323,6 +323,7 @@ hr{
 .table tr:last-child td {
     border-bottom: none;
 }
+
 
 
 
