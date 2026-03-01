@@ -137,6 +137,10 @@ def home():
 def reports():
     return render_template('reports.html')
 
+@app.route('/shelves.html')
+def shelves():
+    return render_template('shelves.html')
+
 # --- SOCKET EVENTS ---
 @socketio.on('connect')
 def handle_connect():
@@ -191,4 +195,5 @@ if __name__ == '__main__':
     print("---------------------------------------")
 
     socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True)
+
 
