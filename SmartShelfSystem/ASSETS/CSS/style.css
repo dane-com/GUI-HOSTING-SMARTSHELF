@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: url(IMAGE/login-background.jpg) no-repeat;
+    background: url("../IMAGE/login-background.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -109,6 +109,7 @@ body{
 .create-container{
     display:flex;
 }
+
 
 
 
